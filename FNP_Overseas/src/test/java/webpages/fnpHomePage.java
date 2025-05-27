@@ -17,25 +17,22 @@ public class fnpHomePage {
 
 	@FindBy(id = "searchbtn")
 	private WebElement ClickOnSearchBtn;
-	
+
 	@FindBy(xpath = "//input[@id='fnpsearch']")
-    private WebElement ClickOnSearhBox;
-	
-	@FindBy (xpath = "//div[@id='searchhintlistdiv']/ul//li[2]/a")
+	private WebElement ClickOnSearhBox;
+
+	@FindBy(xpath = "//div[@id='searchhintlistdiv']/ul//li[2]/a")
 	private WebElement SelectOptionFromDropdown;
-	//h1[@class='plp-heading']
-	
-	@FindBy (xpath = "//li[@id='language-option']/div")
+	// h1[@class='plp-heading']
+
+	@FindBy(xpath = "//li[@id='language-option']/div")
 	private WebElement SelectSwitchToArabicButton;
-	
-	@FindBy(xpath="//div[@class='all_products']/div[2]")
+
+	@FindBy(xpath = "//div[@class='all_products']/div[2]")
 	private WebElement clickOnCakeProduct;
-	
-	@FindBy(xpath="//div[@class='custom-container']/div/div[3]/a")
+
+	@FindBy(xpath = "//div[@class='custom-container']/div/div[3]/a")
 	private WebElement ClickOnFlowerCategory;
-	
-	
-	
 
 	public WebElement getClickOnProduct() {
 		return ClickOnProduct;
@@ -52,10 +49,10 @@ public class fnpHomePage {
 	public WebElement getClickOnSearhBox() {
 		return ClickOnSearhBox;
 	}
+
 	public WebElement getSelectSwitchToArabicButton() {
 		return SelectSwitchToArabicButton;
 	}
-
 
 	public WebElement getSelectOptionFromDropdown() {
 		return SelectOptionFromDropdown;
@@ -69,7 +66,4 @@ public class fnpHomePage {
 		return ClickOnFlowerCategory;
 	}
 
-	
-	}
-
-
+}

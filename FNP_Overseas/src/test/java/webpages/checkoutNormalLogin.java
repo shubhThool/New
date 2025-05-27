@@ -9,30 +9,34 @@ public class checkoutNormalLogin {
 	public checkoutNormalLogin(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="//input[@id='loginformEmailId']")
+
+	@FindBy(xpath = "//input[@id='loginformEmailId']")
 	private WebElement EnterCheckoutEmail;
 
-	@FindBy(xpath="//span[contains(text(),'CONTINUE')]")
+	@FindBy(xpath = "//span[contains(text(),'CONTINUE')]")
 	private WebElement ClickOnContinue;
-	
-	@FindBy(xpath="//input[@id='loginPassword']")
+
+	@FindBy(xpath = "//input[@type='email']")
+	private WebElement EnterEmailId;
+
+	@FindBy(xpath = "//input[@id='loginPassword']")
 	private WebElement EnterPassword;
-	
-	@FindBy(xpath="//input[@id='reg_name']")
+
+	@FindBy(xpath = "//input[@id='reg_name']")
 	private WebElement EnterNameForNewUser;
-	
-	@FindBy(xpath="//input[@id='reg_mobile']")
+
+	@FindBy(xpath = "//input[@id='reg_mobile']")
 	private WebElement EnterMobileNoForNewUser;
-	
-	@FindBy(xpath="//input[@id='regPassword']")
+
+	@FindBy(xpath = "//input[@id='regPassword']")
 	private WebElement EnterNewUserPassword;
-	
-	@FindBy(xpath="//button[@id='submit-check']/span/span")
+
+	@FindBy(xpath = "//button[@id='submit-check']/span/span")
 	private WebElement ClickOnNewUserContinue;
-	
+
 	public WebElement getEnterCheckoutEmail() {
 		return EnterCheckoutEmail;
-		
+
 	}
 
 	public WebElement getClickOnContinue() throws InterruptedException {
@@ -40,8 +44,8 @@ public class checkoutNormalLogin {
 		return ClickOnContinue;
 	}
 
-	public WebElement getEnterPassword()  {
-	
+	public WebElement getEnterPassword() {
+
 		return EnterPassword;
 	}
 
@@ -59,6 +63,11 @@ public class checkoutNormalLogin {
 
 	public WebElement getClickOnNewUserContinue() {
 		return ClickOnNewUserContinue;
+	}
+
+	public WebElement getEnterEmailId() {
+		return EnterEmailId;
+
 	}
 
 }

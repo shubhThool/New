@@ -9,15 +9,16 @@ public class myCartPage {
 	public myCartPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="//div[@id='cartcontent']/div/ul/li/span/i")
+
+	@FindBy(xpath = "//div[@id='cartcontent']/div/ul/li/span/i")
 	private WebElement clickOnDeleteIteam;
-	
-	@FindBy(xpath="//div[@id='cart-button']/button")
+
+	@FindBy(xpath = "//div[@id='cart-button']/button")
 	private WebElement ClickOnProceedToPayment;
-	
-	@FindBy(id="del-yes")
+
+	@FindBy(id = "del-yes")
 	private WebElement ClickOnYes;
-	
+
 	public WebElement getClickOnDeleteIteam() {
 		return clickOnDeleteIteam;
 	}

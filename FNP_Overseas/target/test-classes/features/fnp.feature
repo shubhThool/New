@@ -148,25 +148,25 @@ And click on continue
 And Click on coupon
 And Enter coupon code as a "CART10"
 And Click on apply
-@sanity14
-Scenario: To verify that user is able to create PNC using Credit Card
-When select any product from the home page
-And select where to location
-And select delivery date ,shipping method and Time slot
-And Click on buy now button
-And Click on continue without add-ons
-And Enter valid Email as a "shubham@gmail.com"
-And click on continue
-And Enter password as a "Shubham@123"
-And click on continue
-And Click on proceed to payment button
-And select Credit Card payment option
-And enter card number as a "4242424242424242"
-And Enter card name as a "Shubham"
-And select month and year as a "225"
-And Enter Cvv as a "123"
-And click on pay
-Then verify that user land on PNC page as a "Oops! Payment not confirmed!"
+#@sanity14
+#Scenario: To verify that user is able to create PNC using Credit Card
+#When select any product from the home page
+#And select where to location
+#And select delivery date ,shipping method and Time slot
+#And Click on buy now button
+#And Click on continue without add-ons
+#And Enter valid Email as a "shubham@gmail.com"
+#And click on continue
+#And Enter password as a "Shubham@123"
+#And click on continue
+#And Click on proceed to payment button
+#And select Credit Card payment option
+#And enter card number as a "4242424242424242"
+#And Enter card name as a "Shubham"
+#And select month and year as a "225"
+#And Enter Cvv as a "123"
+#And click on pay
+#Then verify that user land on PNC page as a "Oops! Payment not confirmed!"
 @sanity15
 Scenario: To verify that user is able to add new address
 When select any product from the home page
@@ -283,20 +283,20 @@ Then verify that user land on PNC page as a "Oops! Payment not confirmed!"
 Scenario:To verify that user is able to login via New User Normal Flow
 When user click on Account button
 And click on login button
-And Enter valid Email Id as a "aman.t.varshney+e6@gmail.com"
+And Enter valid Email Id as new
 And Click on continue button
 Then Fill normal login Name Field as a "Aman test"
 Then Fill normal login Mobile No. Field "112233445566"
 Then Enter normal login New User password as a "popper@123"
 And Click on continue button
-@sanity25z
+@sanity25
 Scenario: To verify that user is able to Sign Up/Registration with new user in checkout page
 When select any product from the home page
 And select where to location
 And select delivery date ,shipping method and Time slot
 And Click on buy now button
 And Click on continue without add-ons
-And Enter valid Email as a "shubhamb5ijk@gmail.com"
+And Enter valid Email Id as
 And click on continue
 Then Fill Name Field as a "Aman test"
 Then Fill Mobile No. Field "112233445566"

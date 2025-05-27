@@ -14,13 +14,12 @@ public class PLP_Page {
 	private WebElement PlpSearchBar;
 	@FindBy(id = "searchbtn")
 	private WebElement PLP_pageClickOnSearch;
-	
-	@FindBy(xpath="//ul[@id='searchProductListing']/li[3]/a")
+
+	@FindBy(xpath = "//ul[@id='searchProductListing']/li[3]/a")
 	private WebElement ClickOnPlantProduct;
-	
-	@FindBy(xpath="//ul[@id='searchProductListing']/li/a")
+
+	@FindBy(xpath = "//ul[@id='searchProductListing']/li/a")
 	private WebElement SelectFlowerFromPLP;
-	
 
 	public WebElement getPlpSearchBar() {
 		return PlpSearchBar;
@@ -34,7 +33,8 @@ public class PLP_Page {
 		Thread.sleep(2000);
 		return ClickOnPlantProduct;
 	}
+
 	public WebElement getSelectFlowerFromPLP() {
 		return SelectFlowerFromPLP;
-}
+	}
 }

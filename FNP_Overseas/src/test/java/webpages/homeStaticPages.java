@@ -15,17 +15,16 @@ public class homeStaticPages {
 
 	@FindBy(id = "login-link")
 	private WebElement LoginButton;
-	
+
 	@FindBy(xpath = "//footer[@data-ga-category='Footer']/div/div/div[2]/div/div/ul/li/a")
 	private WebElement ClickOnAboutUs;
-	
-	@FindBy(xpath="//footer[@data-ga-category='Footer']/div/div/div[2]/div/div/ul/li[2]/a")
+
+	@FindBy(xpath = "//footer[@data-ga-category='Footer']/div/div/div[2]/div/div/ul/li[2]/a")
 	private WebElement ClickOnContactUs;
-	
-	@FindBy(id="help")
+
+	@FindBy(id = "help")
 	private WebElement ClickOnHelp;
-	
-	
+
 	public WebElement getAccountIcon() {
 
 		return AccountIcon;

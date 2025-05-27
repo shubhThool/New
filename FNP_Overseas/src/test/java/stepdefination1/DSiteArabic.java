@@ -59,7 +59,7 @@ public class DSiteArabic extends SeleniumUtility {
 
 	fnpMail Next;
 	arabicSocialLogin EnterPass;
-	
+
 	fnpNormalLoginPage EnterMail;
 	fnpNormalLoginPage ClickOnContinue;
 	fnpNormalLoginPage EnterPPassWord;
@@ -67,7 +67,6 @@ public class DSiteArabic extends SeleniumUtility {
 	fnpNormalLoginPage EnterNormalFlowNameForNewUser;
 	fnpNormalLoginPage EnterNormalFlowMobileNoForNewUser;
 	fnpNormalLoginPage EnterNormalFlowNewUserPassword;
-	
 
 	fnpHomePage ClickOnProduct;
 	fnpHomePage HomePageSearchBar;
@@ -78,10 +77,9 @@ public class DSiteArabic extends SeleniumUtility {
 	fnpHomePage SelectSwitchToArabicButton;
 	fnpHomePage clickOnCakeProduct;
 	fnpHomePage ClickOnFlowerCategory;
-	
+
 	myCartPage ClickOnProceedToPayment;
-	
-	
+
 	fnp_PDP_page ClickOnWhereTo;
 	fnp_PDP_page selectCity;
 	fnp_PDP_page clickOnBuy;
@@ -124,19 +122,16 @@ public class DSiteArabic extends SeleniumUtility {
 	MyAccountPage EnterOccasion;
 	MyAccountPage ClickOnPickDate;
 	MyAccountPage ClickOnSaveOccasion;
-	
-	
+
 	checkoutNormalLogin EnterCheckoutEmail;
 	checkoutNormalLogin ClickOnContinue1;
 	checkoutNormalLogin EnterPassword;
 	checkoutNormalLogin EnterNameForNewUser;
 	checkoutNormalLogin EnterMobileNoForNewUser;
-	checkoutNormalLogin	EnterNewUserPassword;
+	checkoutNormalLogin EnterNewUserPassword;
 	checkoutNormalLogin ClickOnNewUserContinue;
-	arabicCheckoutLogin ClickOnArContinue ;
-	
-	
-	
+	arabicCheckoutLogin ClickOnArContinue;
+
 	MyAccountPage ClickOnDeleteOccasion;
 	MyAccountPage ClickOnEdit;
 	MyAccountPage EditName;
@@ -177,10 +172,7 @@ public class DSiteArabic extends SeleniumUtility {
 	dAPage ChangeTimeSlotInDAPage;
 	arabicDAPage ClickOnProceedToPayment1;
 	arabicDAPage ClickOnFreeMsgCard;
-	
-	
-	
-	
+
 	paymentPage SelectCODPaymentOptn;
 	paymentPage ClickOnBuy;
 	paymentPage ClickOnPayPal;
@@ -193,12 +185,10 @@ public class DSiteArabic extends SeleniumUtility {
 	paymentPage SelectYear;
 	paymentPage clickOnPay;
 	paymentPage ElementVisible;
-	paymentPage	closePayPalPopupWindow;
+	paymentPage closePayPalPopupWindow;
 	paymentPage SelectCreditCardPayOPTn;
 	arabicPaymentOptnPage ClickOnCODPayOptn;
-	
-	
-	
+
 	@Given("user are already in home page")
 	public void user_are_already_in_home_page() {
 
@@ -243,10 +233,10 @@ public class DSiteArabic extends SeleniumUtility {
 	@When("Enter Password as a {string}")
 	public void enter_password_as_a(String pass) throws InterruptedException {
 
-	//	EnterPass = new fnpMail(driver);
-		EnterPass=new arabicSocialLogin(driver);
+		// EnterPass = new fnpMail(driver);
+		EnterPass = new arabicSocialLogin(driver);
 		waitForElementDisplayed(EnterPass.getEnterPass());
-		
+
 		typeInput(EnterPass.getEnterPass(), pass);
 
 		try {
@@ -270,7 +260,6 @@ public class DSiteArabic extends SeleniumUtility {
 
 		System.out.println(driver.getTitle());
 		assertEquals(getCurrentTitleOfApplication("Account My Account - FNP"), Tittle);
-	
 
 	}
 
@@ -280,6 +269,15 @@ public class DSiteArabic extends SeleniumUtility {
 		setSleepTime(500);
 		typeInput(EnterMail.getEnterMail(), Email);
 
+	}
+
+	@When("Enter valid Email Id as a New")
+	public void enter_valid_email_id_as_a_new() {
+		EnterCheckoutEmail = new checkoutNormalLogin(driver);
+		int random = RandomInt();
+		String gamil = "shivam" + random + "@gmail.com";
+		setSleepTime(1000);
+		typeInput(EnterMail.getEnterMail(), gamil);
 	}
 
 	@When("Click on continue button")
@@ -322,6 +320,7 @@ public class DSiteArabic extends SeleniumUtility {
 		selectCity = new fnp_PDP_page(driver);
 		clickOnElement(ClickOnWhereTo.getClickOnWhereTo());
 		clickOnElement(selectCity.getSelectCity());
+		
 
 	}
 
@@ -364,9 +363,18 @@ public class DSiteArabic extends SeleniumUtility {
 
 	}
 
+	@When("Enter valid Email Id as")
+	public void enter_valid_email_as_a() {
+		EnterCheckoutEmail = new checkoutNormalLogin(driver);
+		int random = RandomInt();
+		String gamil = "shivam" + random + "@gmail.com";
+		setSleepTime(1000);
+		typeInput(EnterCheckoutEmail.getEnterCheckoutEmail(), gamil);
+	}
+
 	@Given("click on continue")
 	public void click_on_continue() throws InterruptedException {
-		ClickOnArContinue=new arabicCheckoutLogin(driver);
+		ClickOnArContinue = new arabicCheckoutLogin(driver);
 		setSleepTime(500);
 		waitForElementDisplayed(ClickOnArContinue.getClickOnArContinue());
 		clickElementWithJavaScript(ClickOnArContinue.getClickOnArContinue());
@@ -382,7 +390,7 @@ public class DSiteArabic extends SeleniumUtility {
 
 	@Then("Login done successfull and user land on check-out page")
 	public void login_done_successfull_and_user_land_on_check_out_page() {
-		
+
 		driver.quit();
 
 	}
@@ -392,7 +400,6 @@ public class DSiteArabic extends SeleniumUtility {
 		clickonaddtoCart = new fnp_PDP_page(driver);
 		waitForElementDisplayed(clickonaddtoCart.getAddtoCart());
 		clickElementWithJavaScript(clickonaddtoCart.getAddtoCart());
-		
 
 	}
 
@@ -554,7 +561,7 @@ public class DSiteArabic extends SeleniumUtility {
 	public void click_on_ok_then_the_remainder_delete_successfully() {
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
-		
+
 		driver.quit();
 
 	}
@@ -567,28 +574,20 @@ public class DSiteArabic extends SeleniumUtility {
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='change-btn-span']")));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,700)", "");
-		
-		
-		WebElement elementToClick = driver.findElement(By.xpath("//div[@id='saved-address--1']//li[@class='saved-address add-address']"));
-		
-	       
-        
+
+		WebElement elementToClick = driver
+				.findElement(By.xpath("//div[@id='saved-address--1']//li[@class='saved-address add-address']"));
+
 		if (elementToClick.isDisplayed() && elementToClick.isEnabled()) {
-           
-           clickElementWithJavaScript(elementToClick);
-	            System.out.println("Element clicked successfully!");
-	        } else {
-	            
-	        }
+
+			clickElementWithJavaScript(elementToClick);
+			System.out.println("Element clicked successfully!");
+		} else {
+
+		}
 		typeInput(EnterAddressName.getEnterAddressName(), name);
 
-}	
-		
-		
-		
-		
-
-	
+	}
 
 	@And("Enter recipient address as a {string}")
 	public void enter_recipient_address_as_a(String address) {
@@ -612,17 +611,16 @@ public class DSiteArabic extends SeleniumUtility {
 		Actions ac = new Actions(driver);
 		ac.sendKeys(Keys.ENTER).perform();
 		setSleepTime(1000);
-		
 
 	}
 
 	@And("Click on proceed to payment button")
 	public void Clickon_proceed_to_payment_button() {
-		//ClickOnProceedTOPayment = new dAPage(driver);
-		ClickOnProceedToPayment1=new arabicDAPage(driver);
+		// ClickOnProceedTOPayment = new dAPage(driver);
+		ClickOnProceedToPayment1 = new arabicDAPage(driver);
 		Actions ac = new Actions(driver);
 		ac.sendKeys(Keys.END).perform();
-		
+
 		waitForElementDisplayed(ClickOnProceedToPayment1.getClickOnProceedToPayment());
 		setSleepTime(1000);
 		clickElementWithJavaScript(ClickOnProceedToPayment1.getClickOnProceedToPayment());
@@ -632,8 +630,8 @@ public class DSiteArabic extends SeleniumUtility {
 	@And("Select COD payment option")
 	public void And_Select_COD_payment_option() {
 		ClickOnBuy = new paymentPage(driver);
-	//	SelectCODPaymentOptn = new paymentPage(driver);
-		ClickOnCODPayOptn=new arabicPaymentOptnPage(driver);
+		// SelectCODPaymentOptn = new paymentPage(driver);
+		ClickOnCODPayOptn = new arabicPaymentOptnPage(driver);
 		clickOnElement(ClickOnCODPayOptn.getClickOnCODPayOptn());
 		clickOnElement(ClickOnBuy.getClickOnBuy());
 
@@ -641,29 +639,27 @@ public class DSiteArabic extends SeleniumUtility {
 
 	@Then("user land on Thank you page as {string}")
 	public void user_land_on_thank_you_page_as(String URL) {
-		
-		WebElement waitForPCText = wait
-				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='medium-10 columns']/div/div/h1")));
-		
-		String actualText="شكراً لإهدائكم أحبابكم عن طريقنا";
-		WebElement element=driver.findElement(By.xpath("//div[@class='columns textcenter']/h1"));
-	String ExpectedText=element.getText();
-	 Assert.assertEquals(actualText, ExpectedText, "Text validation failed!");
-	 
-	 driver.quit();
 
+		WebElement waitForPCText = wait.until(
+				ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='medium-10 columns']/div/div/h1")));
 
-		
+		String actualText = "شكراً لإهدائكم أحبابكم عن طريقنا";
+		WebElement element = driver.findElement(By.xpath("//div[@class='columns textcenter']/h1"));
+		String ExpectedText = element.getText();
+		Assert.assertEquals(actualText, ExpectedText, "Text validation failed!");
+
+		driver.quit();
+
 	}
 
 	@Given("Click on free message card")
 	public void click_on_free_message_card() {
-		//ClickOnFreeMessageCard = new dAPage(driver);
-		ClickOnFreeMsgCard=new arabicDAPage(driver);
+		// ClickOnFreeMessageCard = new dAPage(driver);
+		ClickOnFreeMsgCard = new arabicDAPage(driver);
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.END).perform();
 		clickElementWithJavaScript(ClickOnFreeMsgCard.getClickOnFreeMsgCard());
-		
+
 	}
 
 	@Given("Select occasion")
@@ -671,9 +667,9 @@ public class DSiteArabic extends SeleniumUtility {
 		ClickOnOccasion = new dAPage(driver);
 		SelectMotherDayOccasion = new dAPage(driver);
 		waitForElementDisplayed(ClickOnOccasion.getClickOnOccasion());
-		
+
 		clickElementWithJavaScript(ClickOnOccasion.getClickOnOccasion());
-		
+
 		clickElementWithJavaScript(SelectMotherDayOccasion.getSelectMotherDayOccasion());
 
 	}
@@ -713,43 +709,44 @@ public class DSiteArabic extends SeleniumUtility {
 
 	@When("User click on address edit button")
 	public void user_click_on_address_edit_button() {
-	    ClickOnAddressEdit=new dAPage(driver);
-	    waitForElementDisplayed(ClickOnAddressEdit.getClickOnAddressEdit());
+		ClickOnAddressEdit = new dAPage(driver);
+		waitForElementDisplayed(ClickOnAddressEdit.getClickOnAddressEdit());
 
-	    try {
-	      
-	        clickOnElement(ClickOnAddressEdit.getClickOnAddressEdit());
-	    } catch (StaleElementReferenceException e) {
-	       
-	        System.out.println("Caught StaleElementReferenceException. Retrying...");
-	        
-	       
-	        clickOnElement(ClickOnAddressEdit.getClickOnAddressEdit());
-	    }
+		try {
+			setSleepTime(2000);
+
+			clickOnElement(ClickOnAddressEdit.getClickOnAddressEdit());
+		} catch (StaleElementReferenceException e) {
+			setSleepTime(2000);
+
+			System.out.println("Caught StaleElementReferenceException. Retrying...");
+
+			clickOnElement(ClickOnAddressEdit.getClickOnAddressEdit());
+		}
 	}
 
 	@When("Update the name as a {string}")
 	public void update_the_name_as_a(String name) {
 		UpdateTheAddressName = new dAPage(driver);
-		
+
 		typeInputWithSpace(UpdateTheAddressName.getUpdateTheAddressName(), name);
 
 	}
+
 	@When("update the recipients address as a {string}")
 	public void update_the_recipients_address_as_a(String Recipientaddress) {
-		UpdateTheRecipientsAddress=new dAPage(driver);
+		UpdateTheRecipientsAddress = new dAPage(driver);
 		typeInputWithComma(UpdateTheRecipientsAddress.getUpdateTheRecipientsAddress(), Recipientaddress);
-		
+
 	}
 
 	@When("Click on save")
 	public void click_on_save() {
-		ClickUpdatedSaveAndDeliverHere=new dAPage(driver);
+		ClickUpdatedSaveAndDeliverHere = new dAPage(driver);
 		waitForElementDisplayed(ClickUpdatedSaveAndDeliverHere.getClickUpdatedSaveAndDeliverHere());
 		clickOnElement(ClickUpdatedSaveAndDeliverHere.getClickUpdatedSaveAndDeliverHere());
-		
+
 		driver.quit();
-		
 
 	}
 
@@ -812,16 +809,16 @@ public class DSiteArabic extends SeleniumUtility {
 
 	@And("select Credit Card payment option")
 	public void select_Credit_Card_payment_option() {
-		SelectCreditCardPayOPTn=new paymentPage(driver);
+		SelectCreditCardPayOPTn = new paymentPage(driver);
 		clickOnElement(SelectCreditCardPayOPTn.getSelectCreditCardPayOPTn());
 	}
 
 	@When("enter card number as a {string}")
 	public void enter_card_number_as_a(String CardNumber) {
 		EnterCreditCardNumber = new paymentPage(driver);
-		
+
 		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@id='cardNumber']")));
-		
+
 		typeInput(EnterCreditCardNumber.getEnterCreditCardNumber(), CardNumber);
 
 	}
@@ -835,16 +832,14 @@ public class DSiteArabic extends SeleniumUtility {
 
 	}
 
-	
 	@When("select month and year as a {string}")
 	public void select_month_and_year_as_a(String MonthAndYear) {
 		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@id='expiryDate']")));
-		EnterMonthAndYear=new paymentPage(driver);
+		EnterMonthAndYear = new paymentPage(driver);
 		clickOnElement(EnterMonthAndYear.getEnterMonthAndYear());
 		typeInput(EnterMonthAndYear.getEnterMonthAndYear(), MonthAndYear);
 		driver.switchTo().defaultContent();
 	}
-	
 
 	@When("Enter Cvv as a {string}")
 	public void enter_cvv_as_a(String CVV) {
@@ -857,25 +852,19 @@ public class DSiteArabic extends SeleniumUtility {
 	@When("click on pay")
 	public void click_on_pay() {
 		clickOnPay = new paymentPage(driver);
-		ElementVisible= new paymentPage(driver);
+		ElementVisible = new paymentPage(driver);
 		clickOnElement(clickOnPay.getClickOnPay());
 		setSleepTime(5000);
 		driver.navigate().back();
-		
+
 //		waitForElementDisplayed(ElementVisible.getElementVisible());
-		
-		
-		}
-		
-	
 
-	
+	}
 
-	
-	@When ("click on add new address")
+	@When("click on add new address")
 	public void When_click_on_add_new_address() {
-		clickOnAddNewAddress=new dAPage(driver);
-		
+		clickOnAddNewAddress = new dAPage(driver);
+
 //		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 //		WebElement elementOnNewTab = wait
 //				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='change-btn-span']")));
@@ -883,254 +872,260 @@ public class DSiteArabic extends SeleniumUtility {
 //		js.executeScript("window.scrollBy(0,700)", "");
 //		clickOnElement(clickOnAddNewAddress.getClickOnAddNewAddress());
 
-		WebElement elementToClick = driver.findElement(By.xpath("//div[@id='saved-address--1']//span[@class='add-address--label'][normalize-space()='Add new address']"));
-		
-		       
-	        
-			if (elementToClick.isDisplayed() && elementToClick.isEnabled()) {
-	            elementToClick.click();
-		            System.out.println("Element clicked successfully!");
-		        } else {
-		        	
-		            
-		        }
-	
-	}	
+		WebElement elementToClick = driver.findElement(By.xpath(
+				"//div[@id='saved-address--1']//span[@class='add-address--label'][normalize-space()='Add new address']"));
+
+		if (elementToClick.isDisplayed() && elementToClick.isEnabled()) {
+			elementToClick.click();
+			System.out.println("Element clicked successfully!");
+		} else {
+
+		}
+
+	}
+
 	@When("user click on search box")
 	public void user_click_on_search_box() {
-		ClickOnSearhBox=new fnpHomePage(driver);
+		ClickOnSearhBox = new fnpHomePage(driver);
 		clickOnElement(ClickOnSearhBox.getClickOnSearhBox());
 	}
+
 	@When("search {string}")
 	public void search(String string) {
-		ClickOnSearhBox=new fnpHomePage(driver);
+		ClickOnSearhBox = new fnpHomePage(driver);
 		typeInput(ClickOnSearhBox.getClickOnSearhBox(), string);
 	}
-		
+
 	@And("select Air Purifying Plants")
 	public void select_air_purifying_plants() {
-		SelectOptionFromDropdown=new fnpHomePage(driver);
+		SelectOptionFromDropdown = new fnpHomePage(driver);
 		setSleepTime(500);
 		waitForElementDisplayed(SelectOptionFromDropdown.getSelectOptionFromDropdown());
 		clickOnElement(SelectOptionFromDropdown.getSelectOptionFromDropdown());
 	}
-		
-	
-	
+
 	@Then("veriy user is able to land on {string} page")
 	public void veriy_user_is_able_to_land_on_page(String PlantPage) {
-		//assertEquals(getCurrentUrlOfApplication(), PlantPage);
-		String Expected ="https://uat.fnp.ae/ar/cakes?s=popularsearch=Cakes";
+		// assertEquals(getCurrentUrlOfApplication(), PlantPage);
+		String Expected = "https://uat.fnp.ae/ar/cakes?s=popularsearch=Cakes";
 		assertEquals(driver.getCurrentUrl(), Expected);
-	    driver.quit();
+		driver.quit();
 	}
-	
+
 	@When("user click on Arabic switch button")
 	public void user_click_on_arabic_switch_button() {
-		SelectSwitchToArabicButton=new fnpHomePage (driver);
+		SelectSwitchToArabicButton = new fnpHomePage(driver);
 		clickOnElement(SelectSwitchToArabicButton.getSelectSwitchToArabicButton());
-	
+
 	}
+
 	@Then("user should redirect to Arabic site {string}")
 	public void user_should_redirect_to_arabic_site(String string) {
 	}
 
 	@When("click on add button to add add-ons")
 	public void click_on_add_button_to_add_add_ons() {
-		clickOnAddOnsButtonOnDAPage=new dAPage (driver);
+		clickOnAddOnsButtonOnDAPage = new dAPage(driver);
 		clickOnElement(clickOnAddOnsButtonOnDAPage.getClickOnAddOnsButtonOnDAPage());
-		
-}
-	@Then("verify add-ons is increased")
-	public void verify_add_ons_is_increased() {
-		By addOnLocator = By.xpath("//div[@class='addon-wrapper']/div/input"); 
-	       int initialAddOnCount = driver.findElements(addOnLocator).size();
-	       driver.navigate().refresh();
-	       int updatedAddOnCount = driver.findElements(addOnLocator).size();
-	      
-	       Assert.assertTrue(updatedAddOnCount > initialAddOnCount, "Number of add-ons has not increased as expected.");
-	       driver.quit();
-		
+
 	}
 
-	
-	
-	
+	@Then("verify add-ons is increased")
+	public void verify_add_ons_is_increased() {
+		By addOnLocator = By.xpath("//div[@class='addon-wrapper']/div/input");
+		int initialAddOnCount = driver.findElements(addOnLocator).size();
+		driver.navigate().refresh();
+		int updatedAddOnCount = driver.findElements(addOnLocator).size();
 
-	
+		Assert.assertTrue(updatedAddOnCount > initialAddOnCount, "Number of add-ons has not increased as expected.");
+		driver.quit();
+
+	}
+
 	@Then("click on Sign-out button")
 	public void click_on_sign_out_button() {
-		signoutFromMyAccount=new MyAccountPage (driver);
+		signoutFromMyAccount = new MyAccountPage(driver);
 		waitForElementDisplayed(signoutFromMyAccount.getSignoutFromMyAccount());
 		clickOnElement(signoutFromMyAccount.getSignoutFromMyAccount());
 
 	}
-	
+
 	@Then("verify user will be sucessfully logged out {string}")
 	public void verify_user_will_be_sucessfully_logged_out(String signoutpage) {
-		
-		//assertEquals(getCurrentUrlOfApplication(), signoutpage);
-		String actualText="https://uat.fnp.ae/ar/";
-		String Expected=driver.getCurrentUrl();
-		
-	 Assert.assertEquals(actualText, Expected, "Text validation failed!");
-	 
-		
+
+		// assertEquals(getCurrentUrlOfApplication(), signoutpage);
+		String actualText = "https://uat.fnp.ae/ar/";
+		String Expected = driver.getCurrentUrl();
+
+		Assert.assertEquals(actualText, Expected, "Text validation failed!");
+
 		driver.quit();
-		
-	  
+
 	}
+
 	@When("Click on Paypal Payment Option")
 	public void click_on_paypal_payment_option() {
 //		clickOnPayPalPaymentOption=new paymentPage (driver);
 //		clickOnElement(clickOnPayPalPaymentOption.getClcikOnPayPalCheckoutButton());
-		ClickOnPayPal=new paymentPage(driver);
+		ClickOnPayPal = new paymentPage(driver);
 		clickOnElement(ClickOnPayPal.getClickOnPayPal());
-		
+
 	}
-	
+
 	@When("Click on Paypal Checkout button")
 	public void click_on_paypal_checkout_button() {
-		ClickOnPayPalCheckout=new paymentPage (driver);
+		ClickOnPayPalCheckout = new paymentPage(driver);
 		waitForElementDisplayed(ClickOnPayPalCheckout.getClickOnPayPalCheckout());
 		clickOnElement(ClickOnPayPalCheckout.getClickOnPayPalCheckout());
 	}
+
 	@Then("Click on close button to create PNC")
 	public void click_on_close_button_to_create_pnc() throws AWTException {
-		closePayPalPopupWindow=new paymentPage (driver);
-		
+		closePayPalPopupWindow = new paymentPage(driver);
+
 //		Robot robot = new Robot();
 //		robot.keyPress(KeyEvent.VK_ALT);
 //		robot.keyPress(KeyEvent.VK_F4);
-		setSleepTime(3000);
-		pressAltEsc();
-		setSleepTime(1000);
-		pressTabEnter(3);	  
+		driver.getWindowHandle();
+		Set<String> AllWindow = driver.getWindowHandles();
+		List<String> WindowIdList = new ArrayList(AllWindow);
+		driver.switchTo().window(WindowIdList.get(2));
+
+		driver.manage().window().maximize();
+		driver.close();
+		
+		driver.switchTo().window(WindowIdList.get(1));
 	}
-				
-	
+
 	@Then("verify that user land on PNC page as a {string}")
 	public void verify_that_user_land_on_pnc_page_as_a(String PNCcreated) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
-		WebElement waitForPNCText = wait
-				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='medium-10 columns']/div/div/h1")));
-		
-		String actualText="تنبيه! الدفع غير مؤكد!";
-		WebElement element=driver.findElement(By.xpath("//div[@class='medium-10 columns']/div/div/h1"));
-	String ExpectedText=element.getText();
-	 Assert.assertEquals(actualText, ExpectedText, "Text validation failed!");
-	 
-	 driver.quit();
+		WebElement waitForPNCText = wait.until(
+				ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='medium-10 columns']/div/div/h1")));
+
+		String actualText = "تنبيه! الدفع غير مؤكد!";
+		WebElement element = driver.findElement(By.xpath("//div[@class='medium-10 columns']/div/div/h1"));
+		String ExpectedText = element.getText();
+		Assert.assertEquals(actualText, ExpectedText, "Text validation failed!");
+
+		driver.quit();
 
 	}
+
 	@Then("Delete that product from DA page")
 	public void delete_that_product_from_da_page() {
-	clickOnDeleteButtonToDeleteProduct= new dAPage(driver);
-    clickElementWithJavaScript(clickOnDeleteButtonToDeleteProduct.getClickOnDeleteButtonToDeleteProduct());
+		clickOnDeleteButtonToDeleteProduct = new dAPage(driver);
+		clickElementWithJavaScript(clickOnDeleteButtonToDeleteProduct.getClickOnDeleteButtonToDeleteProduct());
 	}
-	
+
 	@Then("click on yes button from pop-up to delete the product")
 	public void click_on_yes_button_from_pop_up_to_delete_the_product() {
-		clickOnYesBottonFromPopupToDeleteProduct= new dAPage(driver);
+		clickOnYesBottonFromPopupToDeleteProduct = new dAPage(driver);
 		clickOnElement(clickOnYesBottonFromPopupToDeleteProduct.getClickOnYesBottonFromPopupToDeleteProduct());
 		driver.quit();
 	}
+
 	@When("select cake product from the home page")
 	public void select_cake_product_from_the_home_page() {
-		clickOnCakeProduct=new fnpHomePage(driver);
+		clickOnCakeProduct = new fnpHomePage(driver);
 		waitForElementDisplayed(clickOnCakeProduct.getClickOnCakeProduct());
 		clickOnElement(clickOnCakeProduct.getClickOnCakeProduct());
-	   
+
 	}
+
 	@Then("Fill Name Field as a {string}")
 	public void fill_name_field_as_a(String EnteringNewUserName) {
-		EnterNameForNewUser=new checkoutNormalLogin(driver);
+		EnterNameForNewUser = new checkoutNormalLogin(driver);
 		typeInput(EnterNameForNewUser.getEnterNameForNewUser(), EnteringNewUserName);
-		
+
 	}
-	
+
 	@Then("Fill Mobile No. Field {string}")
 	public void fill_mobile_no_field(String EnteringNewUserMobileNo) {
-		EnterMobileNoForNewUser=new checkoutNormalLogin(driver);
+		EnterMobileNoForNewUser = new checkoutNormalLogin(driver);
 		typeInput(EnterMobileNoForNewUser.getEnterMobileNoForNewUser(), EnteringNewUserMobileNo);
-		}
-	
+	}
+
 	@Then("Enter New User password as a {string}")
 	public void enter_new_user_password_as_a(String EnteringNewUserPassword) {
-		EnterNewUserPassword=new checkoutNormalLogin(driver);
+		EnterNewUserPassword = new checkoutNormalLogin(driver);
 		typeInput(EnterNewUserPassword.getEnterNewUserPassword(), EnteringNewUserPassword);
-		}
+	}
+
 	@And("Click on new user continue button")
 	public void Click_on_new_user_continue_button() {
-		ClickOnNewUserContinue=new checkoutNormalLogin(driver);
+		ClickOnNewUserContinue = new checkoutNormalLogin(driver);
 		setSleepTime(500);
 		clickOnElement(ClickOnNewUserContinue.getClickOnNewUserContinue());
-		
-		
+
 	}
+
 	@When("click on flower category in home")
 	public void click_on_flower_category_in_home() {
-		ClickOnFlowerCategory=new fnpHomePage(driver);
+		ClickOnFlowerCategory = new fnpHomePage(driver);
 		clickOnElement(ClickOnFlowerCategory.getClickOnFlowerCategory());
-	  
-		
+
 	}
+
 	@When("Select flower in PLP page")
 	public void select_flower_in_plp_page() {
-		SelectFlowerFromPLP=new PLP_Page(driver);
+		SelectFlowerFromPLP = new PLP_Page(driver);
 		clickOnElement(SelectFlowerFromPLP.getSelectFlowerFromPLP());
-	    
+
 	}
+
 	@Then("Fill normal login Name Field as a {string}")
 	public void fill_normal_login_name_field_as_a(String string) {
-		EnterNormalFlowNameForNewUser=new fnpNormalLoginPage(driver);
+		EnterNormalFlowNameForNewUser = new fnpNormalLoginPage(driver);
 		typeInput(EnterNormalFlowNameForNewUser.getEnterNormalFlowNameForNewUser(), string);
-	    
-	
+
 	}
+
 	@Then("Fill normal login Mobile No. Field {string}")
 	public void fill_normal_login_mobile_no_field(String Num) {
-		EnterNormalFlowMobileNoForNewUser=new fnpNormalLoginPage(driver);
+		EnterNormalFlowMobileNoForNewUser = new fnpNormalLoginPage(driver);
 		typeInput(EnterNormalFlowMobileNoForNewUser.getEnterNormalFlowMobileNoForNewUser(), Num);
-		
-		
+
 	}
-	    
+
 	@Then("Enter normal login New User password as a {string}")
 	public void enter_normal_login_new_user_password_as_a(String pass) {
-		EnterNormalFlowNewUserPassword=new fnpNormalLoginPage(driver);
+		EnterNormalFlowNewUserPassword = new fnpNormalLoginPage(driver);
 		typeInput(EnterNormalFlowNewUserPassword.getEnterNormalFlowNewUserPassword(), pass);
-	   
+
 	}
+
 	@When("click on change button in DA page")
 	public void click_on_change_button_in_da_page() {
-		ClickOnChangeButton=new dAPage(driver);
+		ClickOnChangeButton = new dAPage(driver);
 		clickOnElement(ClickOnChangeButton.getClickOnChangeButton());
 	}
+
 	@When("change the delivery date in DA page")
 	public void change_the_delivery_date_in_DA_page() {
-		ChangeDeliveryDateInDAPage=new dAPage(driver);
+		ChangeDeliveryDateInDAPage = new dAPage(driver);
 		clickOnElement(ChangeDeliveryDateInDAPage.getChangeDeliveryDateInDAPage());
-		
-		
+
 	}
+
 	@And("change shipping method in DA page")
 	public void change_shipping_method_in_DA_page() {
-		ChangeShippingMethodInDAPage=new dAPage(driver);
+		ChangeShippingMethodInDAPage = new dAPage(driver);
 		clickOnElement(ChangeShippingMethodInDAPage.getChangeShippingMethodInDAPage());
 	}
 
-	
 	@And("change the time slot in DA page")
 	public void change_the_time_slot_in_DA_page() {
-		ChangeTimeSlotInDAPage=new dAPage(driver);
-	clickElementWithJavaScript(ChangeTimeSlotInDAPage.getChangeTimeSlotInDAPage());
-		
+		ChangeTimeSlotInDAPage = new dAPage(driver);
+		clickElementWithJavaScript(ChangeTimeSlotInDAPage.getChangeTimeSlotInDAPage());
+
 	}
+
 	@Given("click on proceed to Payment button in my cart")
 	public void click_on_proceed_to_payment_button_in_my_cart() {
-	   ClickOnProceedToPayment=new myCartPage(driver);
+		ClickOnProceedToPayment = new myCartPage(driver);
 		clickOnElement(ClickOnProceedToPayment.getClickOnProceedToPayment());
 	}
-                                                                              
+	
+
 }

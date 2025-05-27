@@ -6,16 +6,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class arabicStaticPages {
-	public  arabicStaticPages(WebDriver driver) {
+	public arabicStaticPages(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="//ul[@id='morelinks']/li/a")
+
+	@FindBy(xpath = "//ul[@id='morelinks']/li/a")
 	private WebElement clickOnAboutUs;
-	
-	//ul[@id='morelinks']/li[5]/a
-	@FindBy(xpath="//ul[@id='morelinks']/li[5]/a")
+
+	// ul[@id='morelinks']/li[5]/a
+	@FindBy(xpath = "//ul[@id='morelinks']/li[5]/a")
 	private WebElement clickOnContactUs;
-	
+
 	public WebElement getClickOnAboutUs() {
 		return clickOnAboutUs;
 	}
